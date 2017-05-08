@@ -1,10 +1,13 @@
 #include "AppDelegate.h"
-#include "GameScene.h"
+#include "GameScene/GameScene.h"
+#include "SplashScene/SplashScene.h"
+#include "MainMenuScene.h"
+#include "HUDLayer.h"
 
 USING_NS_CC;
 
-static cocos2d::Size designResolutionSize = cocos2d::Size(640, 1136);
-static cocos2d::Size smallResolutionSize = cocos2d::Size(288, 512);
+static cocos2d::Size designResolutionSize = cocos2d::Size(768, 1136);
+static cocos2d::Size smallResolutionSize = cocos2d::Size(480*0.8, 854*0.8);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
@@ -47,13 +50,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
 
     // turn on display FPS
-    //director->setDisplayStats(true);
+    director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
+    director->setAnimationInterval(1.0f / 60);
 
     // Set the design resolution
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+    //glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::SHOW_ALL);
+	glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
     Size frameSize = glview->getFrameSize();
     // if the frame's height is larger than the height of medium size.
     /*if (frameSize.height > mediumResolutionSize.height)
@@ -74,7 +78,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene();
+    auto scene = SplashScene::createScene();
 
     // run
     director->runWithScene(scene);

@@ -12,13 +12,18 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-				   ../../Classes/MenuLayer.cpp \
-				   ../../Classes/Land.cpp \
+				   ../../Classes/Land/Land.cpp \
 				   ../../Classes/LandsFile.cpp \
-				   ../../Classes/Player.cpp \
+				   ../../Classes/Player/Player.cpp \
 				   ../../Classes/GLES-Render.cpp \
-				   ../../Classes/GameOverLayer.cpp \
-                   ../../Classes/GameScene.cpp
+				   ../../Classes/GameOverLayer/GameOverLayer.cpp \
+				   ../../Classes/SplashScene/SplashScene.cpp \
+				   ../../Classes/MainMenuScene.cpp \
+				   ../../Classes/HUDLayer.cpp \
+				   ../../Classes/JNIHelpers.cpp \
+				   ../../Classes/JNIResults.cpp \
+				   ../../Classes/SonarFrameworks.cpp \
+                   ../../Classes/GameScene/GameScene.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

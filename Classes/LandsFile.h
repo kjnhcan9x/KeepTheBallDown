@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "LandsFile.h"
 #include "Box2D/Box2D.h"
-#include "Land.h"
+#include "Land/Land.h"
 
 USING_NS_CC;
 
@@ -22,20 +22,17 @@ public:
 	~LandsFile();
 	static LandsFile *getInstance();
 
-	void initLand(int numLand, b2World * _world);
+	void initLand(b2World * _world, int themNumber_);
+
 
 	LandObject * createNewLand(TypeOfLand typeOfLand);
 
 	Land * popLand();
-
-	//void resetListOfLand(Land * land);
-
-	void pushOneLand(Land * land);
-	std::vector<LandObject*> listOfLand;
-
 private:
 	static LandsFile *singleton;
 	b2World *world;
+	int landNumber;
+	int themeNumber;
 };
 
 #endif // __LANDS_FILE_H__
